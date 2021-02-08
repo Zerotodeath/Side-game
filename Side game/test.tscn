@@ -15,7 +15,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AI 1" type="KinematicBody2D" parent="."]
+[node name="AI 1" type="KinematicBody2D" parent="." groups=[
+"AI",
+]]
 position = Vector2( 328, 176 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -33,8 +35,10 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AI 1/Area2D"]
 shape = SubResource( 2 )
 
-[node name="AI 2" type="KinematicBody2D" parent="."]
-position = Vector2( 800, 152 )
+[node name="AI 2" type="KinematicBody2D" parent="." groups=[
+"AI",
+]]
+position = Vector2( 568, 208 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
