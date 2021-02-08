@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://AI_one.gd" type="Script" id=2]
-[ext_resource path="res://AI 2.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -18,7 +17,7 @@ __meta__ = {
 [node name="AI 1" type="KinematicBody2D" parent="." groups=[
 "AI",
 ]]
-position = Vector2( 328, 176 )
+position = Vector2( 416, 336 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -38,8 +37,8 @@ shape = SubResource( 2 )
 [node name="AI 2" type="KinematicBody2D" parent="." groups=[
 "AI",
 ]]
-position = Vector2( 568, 208 )
-script = ExtResource( 3 )
+position = Vector2( 568, 184 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -50,7 +49,11 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AI 2"]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="AI 2"]
+[node name="Area2D" type="Area2D" parent="AI 2" groups=[
+"AI",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AI 2/Area2D"]
 shape = SubResource( 2 )
+[connection signal="area_entered" from="AI 1/Area2D" to="AI 1" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="AI 1/Area2D" to="AI 1" method="_on_Area2D_area_exited"]
