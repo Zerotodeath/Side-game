@@ -5,7 +5,6 @@ enum{
 	Chaseing
 }
 
-onready var A2 = get_parent().get_node("AI 2")
 onready var may_chase = get_tree().get_nodes_in_group("AI")
 
 var run_speed = 40

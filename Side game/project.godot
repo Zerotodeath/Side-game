@@ -19,6 +19,12 @@ config/name="Side game"
 run/main_scene="res://test.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="Main"
+2d_physics/layer_2="AI"
+2d_physics/layer_3="Plant"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
