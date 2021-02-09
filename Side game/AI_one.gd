@@ -33,8 +33,7 @@ func _ready():
 	$hithurtbox.connect("area_exited", self, "_on_hithurtbox_area_exited")
 	$Timer.connect("timeout", self, "hit_timer")
 func _physics_process(delta):
-	print(eating)
-	if health < 0:
+	if health <= 0:
 		queue_free()
 	if target != null:
 		velocity = position.direction_to(target.global_position) * run_speed
@@ -67,4 +66,5 @@ func _on_hithurtbox_area_exited(area):
 
 func hit_timer():
 	target.health -= damage
+	print(target, target.health)
 
