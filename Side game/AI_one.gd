@@ -9,7 +9,10 @@ onready var may_chase = get_tree().get_nodes_in_group("AI")
 
 var run_speed = 40
 var velocity = Vector2.ZERO
-var emeny
+var target
+
+var fighting = false
+var eating
 
 var hungry = 49
 var searching = true
@@ -22,16 +25,22 @@ func _ready():
 	$Area2D.connect("area_entered", self, "_on_Area2D_area_entered")
 	$Area2D.connect("area_exited", self, "_on_Area2D_area_exited")
 func _physics_process(delta):
-	if emeny != null:
-		velocity = position.direction_to(emeny.global_position) * run_speed
+	print(eating)
+	if target != null:
+		velocity = position.direction_to(target.global_position) * run_speed
 	velocity = move_and_slide(velocity)
 
 
 func _on_Area2D_area_entered(area):
-	emeny = area.get_parent()
+	target = area.get_parent()
 	can_chase = true
+	if target.is_in_group("AI"):
+		fighting = true
+	elif target.is_in_group("Plant"):
+		eating = true
 
 
 func _on_Area2D_area_exited(area):
 	can_chase = false
-	emeny = null
+	target = null
+	fighting = false
