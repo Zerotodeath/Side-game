@@ -11,6 +11,9 @@ var run_speed = 40
 var velocity = Vector2.ZERO
 var emeny
 
+var hungry = 49
+var searching = true
+
 
 onready var In_area = $Area2D.get_overlapping_areas()
 var can_chase = true
