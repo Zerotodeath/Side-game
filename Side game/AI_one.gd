@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+enum{
+	Idle
+	Chaseing
+}
+
 onready var A2 = get_parent().get_node("AI 2")
 onready var may_chase = get_tree().get_nodes_in_group("AI")
 
@@ -12,15 +17,12 @@ onready var In_area = $Area2D.get_overlapping_areas()
 var can_chase = true
 
 func _ready():
-	pass
-
-
+	$Area2D.connect("area_entered", self, "_on_Area2D_area_entered")
+	$Area2D.connect("area_exited", self, "_on_Area2D_area_exited")
 func _physics_process(delta):
-	
 	if emeny != null:
 		velocity = position.direction_to(emeny.global_position) * run_speed
 	velocity = move_and_slide(velocity)
-
 
 
 func _on_Area2D_area_entered(area):

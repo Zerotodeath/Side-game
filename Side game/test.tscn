@@ -17,7 +17,7 @@ __meta__ = {
 [node name="AI 1" type="KinematicBody2D" parent="." groups=[
 "AI",
 ]]
-position = Vector2( 416, 336 )
+position = Vector2( 384, 280 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -55,5 +55,3 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AI 2/Area2D"]
 shape = SubResource( 2 )
-[connection signal="area_entered" from="AI 1/Area2D" to="AI 1" method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="AI 1/Area2D" to="AI 1" method="_on_Area2D_area_exited"]
