@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AI_one.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -9,10 +9,12 @@ extents = Vector2( 32, 32 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 130.231
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 40, 40 )
+
 [node name="AI 1" type="KinematicBody2D" groups=[
 "AI",
 ]]
-position = Vector2( 384, 280 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -30,3 +32,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
+[node name="hithurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hithurtbox"]
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
