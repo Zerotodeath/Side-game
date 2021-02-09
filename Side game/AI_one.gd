@@ -19,10 +19,7 @@ var eating
 export var health = 100
 export var damage = 25
 var searching = true
-
-
-
-
+var previos_target = [target, "old"]
 onready var In_area = $Area2D.get_overlapping_areas()
 var can_chase = true
 
@@ -45,6 +42,8 @@ func _on_Area2D_area_entered(area):
 	can_chase = true
 	if target.is_in_group("AI"):
 		fighting = true
+	previos_target.insert("nothing", target)
+	print(previos_target)
 	
 
 
@@ -65,6 +64,6 @@ func _on_hithurtbox_area_exited(area):
 	$Timer.stop()
 
 func hit_timer():
-	target.health -= damage
-	print(target, target.health)
+	if fighting == true:
+		target.health -= damage
 

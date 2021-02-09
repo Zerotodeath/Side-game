@@ -8,15 +8,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Plant" parent="." instance=ExtResource( 1 )]
-position = Vector2( 240, 64 )
-
 [node name="AI 1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 192, 432 )
+position = Vector2( 240, 288 )
+
+[node name="AI 2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 464, 192 )
 health = 152
 damage = 12
 
-[node name="AI 2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 432, 344 )
-health = 75
-damage = 45
+[node name="Plant" parent="." instance=ExtResource( 1 )]
+position = Vector2( 480, 480 )

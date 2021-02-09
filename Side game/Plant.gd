@@ -6,4 +6,3 @@ export var health = 50
 func _process(delta):
 	if health < 0:
 		queue_free()
-	print("plant", health)

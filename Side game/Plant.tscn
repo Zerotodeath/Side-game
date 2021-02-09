@@ -12,7 +12,6 @@ radius = 240.0
 [node name="Plant" type="StaticBody2D" groups=[
 "Plant",
 ]]
-position = Vector2( 536, 296 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
