@@ -12,7 +12,7 @@ radius = 130.231
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 40, 40 )
 
-[node name="AI 1" type="KinematicBody2D" groups=[
+[node name="AI" type="KinematicBody2D" groups=[
 "AI",
 ]]
 script = ExtResource( 1 )
