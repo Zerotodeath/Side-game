@@ -15,14 +15,14 @@ var velocity = Vector2.ZERO
 var target
 
 var fighting = false
-var eating
+var eating = false
 
 export var health = 100
 export var damage = 25
 var searching = true
 var previos_target
 var life_cycle = false
-var eat_damage = 1
+export var eat_damage = 1
 onready var next_target
 var can_chase = true
 
@@ -34,7 +34,6 @@ func _ready():
 	$hithurtbox.connect("area_exited", self, "_on_hithurtbox_area_exited")
 	$Timer.connect("timeout", self, "hit_timer")
 func _physics_process(delta):
-	print(name, " ", health)
 	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
 	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
 	last_targat()
@@ -56,16 +55,17 @@ func _on_Area2D_area_exited(area):
 	can_chase = false
 	target = null
 
-
 func _on_hithurtbox_area_entered(area):
 	if target != null:
 		if target.is_in_group("Plant"):
 			eating = true
 		elif target.is_in_group("AI"):
+			if target.target == null:
+				target = null
 			fighting = true
 		else:
 			fighting = false
-		eating = false
+			eating = false
 	target = area.get_parent()
 	$Timer.start()
 
@@ -73,14 +73,14 @@ func _on_hithurtbox_area_exited(area):
 	target = null
 
 func hit_timer():
+	if target != null:
+		print(eating, " ",fighting)
 	if fighting == true:
 		if target != null:
-			if target.is_in_group("AI"):
-				target.health -= damage
+			target.health -= damage
 	elif eating == true:
 		if target != null:
-			if target.is_in_group("Plant"):
-				target.health -= eat_damage
+			target.health -= eat_damage
 	
 
 

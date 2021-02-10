@@ -49,6 +49,7 @@ position = Vector2( 104, 64 )
 can_print = true
 health = 40
 damage = 16
+eat_damage = 2
 
 [node name="AI3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 912, 232 )
@@ -59,110 +60,110 @@ damage = 16
 [node name="AI4" parent="." instance=ExtResource( 2 )]
 position = Vector2( 464, 184 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 224, 432 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI6" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, 328 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI7" parent="." instance=ExtResource( 2 )]
 position = Vector2( 480, 48 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI8" parent="." instance=ExtResource( 2 )]
 position = Vector2( 208, 168 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 408, 304 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI10" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320, 464 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI11" parent="." instance=ExtResource( 2 )]
 position = Vector2( 616, 208 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI12" parent="." instance=ExtResource( 2 )]
 position = Vector2( 824, 152 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 312, 208 )
 can_print = true
-health = 40
-damage = 16
+health = 30
+damage = 17
 
 [node name="AI14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 416 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI15" parent="." instance=ExtResource( 2 )]
 position = Vector2( 264, 560 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI16" parent="." instance=ExtResource( 2 )]
 position = Vector2( 680, 560 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 880, 376 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI18" parent="." instance=ExtResource( 2 )]
 position = Vector2( 776, 216 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI19" parent="." instance=ExtResource( 2 )]
 position = Vector2( 504, 264 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI20" parent="." instance=ExtResource( 2 )]
 position = Vector2( 384, 552 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI21" parent="." instance=ExtResource( 2 )]
 position = Vector2( 984, 352 )
 can_print = true
-health = 40
-damage = 16
+health = 35
+damage = 20
 
 [node name="AI22" parent="." instance=ExtResource( 2 )]
 position = Vector2( 992, 544 )
@@ -173,65 +174,65 @@ damage = 16
 [node name="AI23" parent="." instance=ExtResource( 2 )]
 position = Vector2( 664, 424 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI24" parent="." instance=ExtResource( 2 )]
 position = Vector2( 240, 328 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI25" parent="." instance=ExtResource( 2 )]
 position = Vector2( 48, 120 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI26" parent="." instance=ExtResource( 2 )]
 position = Vector2( 376, 128 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI27" parent="." instance=ExtResource( 2 )]
 position = Vector2( 544, 144 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI28" parent="." instance=ExtResource( 2 )]
 position = Vector2( 784, 48 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI29" parent="." instance=ExtResource( 2 )]
 position = Vector2( 552, 528 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI30" parent="." instance=ExtResource( 2 )]
 position = Vector2( 744, 456 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI31" parent="." instance=ExtResource( 2 )]
 position = Vector2( 800, 552 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI32" parent="." instance=ExtResource( 2 )]
 position = Vector2( 168, 544 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
 
 [node name="AI33" parent="." instance=ExtResource( 2 )]
 position = Vector2( 320, 376 )
 can_print = true
-health = 40
-damage = 16
+health = 50
+damage = 10
