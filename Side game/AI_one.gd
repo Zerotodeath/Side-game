@@ -16,6 +16,7 @@ var target
 
 var fighting = false
 var eating = false
+var loop = false
 
 export var health = 100
 export var damage = 25
@@ -34,9 +35,11 @@ func _ready():
 	$hithurtbox.connect("area_exited", self, "_on_hithurtbox_area_exited")
 	$Timer.connect("timeout", self, "hit_timer")
 func _physics_process(delta):
+	
 	position.x = clamp(position.x, 0, get_viewport_rect().size.x)
 	position.y = clamp(position.y, 0, get_viewport_rect().size.y)
-	last_targat()
+	if loop == true:
+		last_targat()
 	if target == null:
 		life_cycle = false
 	if health <= 0:
@@ -47,8 +50,12 @@ func _physics_process(delta):
 	
 
 func _on_Area2D_area_entered(area):
-	target = area.get_parent()
-	can_chase = true
+	if loop == false:
+		target = area.get_parent()
+		can_chase = true
+		loop = true
+	if target == null:
+		loop = false
 
 
 func _on_Area2D_area_exited(area):
@@ -70,11 +77,12 @@ func _on_hithurtbox_area_entered(area):
 	$Timer.start()
 
 func _on_hithurtbox_area_exited(area):
+	if next_target != null && target != null && previos_target != null:
+		if target.is_in_group("Plant"):
+			print(next_target.name, " ", target.name, " ", previos_target.name, " ", name)
 	target = null
 
 func hit_timer():
-	if target != null:
-		print(eating, " ",fighting)
 	if fighting == true:
 		if target != null:
 			target.health -= damage
@@ -82,6 +90,10 @@ func hit_timer():
 		if target != null:
 			target.health -= eat_damage
 	
+	if target != null:
+		if target.is_in_group("AI"):
+			if target.target == null:
+				target = null
 
 
 func last_targat():
@@ -97,9 +109,19 @@ func last_targat():
 				nexttarget()
 			else:
 				queue_free()
+		
 
 func nexttarget():
 	var next_target_area = $Area2D.get_overlapping_areas()
 	for area in next_target_area:
 		next_target = area.get_parent()
 		target = next_target
+		if target == next_target:
+			loop = false
+		if next_target != null:
+			if next_target.is_in_group("AI"):
+				fighting = true
+			elif next_target.is_in_group("Plant"):
+				eating = true
+		
+
