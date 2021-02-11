@@ -1,11 +1,16 @@
 extends KinematicBody2D
 
+enum{
+	WANDER
+	CHASING
+	EATING
+}
+
+var state = WANDER
+
 onready var Nav = $Navigation2D
+var Motion = Vector2.ZERO
 
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta):
+	
+	move_and_slide(Motion)

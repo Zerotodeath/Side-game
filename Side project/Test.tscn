@@ -14,7 +14,11 @@ outlines = [ PoolVector2Array( 32, 24, 32, 32, -32, 32, -32, -32, 32, -32 ) ]
 [node name="Node2D" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 432, 312 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 texture = ExtResource( 2 )
@@ -25,4 +29,22 @@ shape = SubResource( 1 )
 [node name="Navigation2D" type="Navigation2D" parent="KinematicBody2D"]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="KinematicBody2D/Navigation2D"]
+navpoly = SubResource( 2 )
+
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
+position = Vector2( 176, 152 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+shape = SubResource( 1 )
+
+[node name="Navigation2D" type="Navigation2D" parent="KinematicBody2D2"]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="KinematicBody2D2/Navigation2D"]
 navpoly = SubResource( 2 )
