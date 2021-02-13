@@ -1,21 +1,112 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://AI1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://taetmove.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 192.167
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 32 )
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AI1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 256, 136 )
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 760, 72 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="AI2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 80, 56 )
-can_print = true
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -72 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="Position2D"]
-current = true
+[node name="Area2D" type="Area2D" parent="KinematicBody2D"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Main cast" type="RayCast2D" parent="KinematicBody2D"]
+enabled = true
+cast_to = Vector2( 0, 0 )
+
+[node name="Raycast" type="Node2D" parent="KinematicBody2D"]
+
+[node name="Top cast" type="Node2D" parent="KinematicBody2D/Raycast"]
+
+[node name="Up ray" type="RayCast2D" parent="KinematicBody2D/Raycast/Top cast"]
+position = Vector2( 0, -32 )
+enabled = true
+cast_to = Vector2( 0, -100 )
+
+[node name="Up left" type="RayCast2D" parent="KinematicBody2D/Raycast/Top cast"]
+position = Vector2( 0, -40 )
+rotation = 0.261799
+enabled = true
+cast_to = Vector2( -50, -50 )
+
+[node name="Up right" type="RayCast2D" parent="KinematicBody2D/Raycast/Top cast"]
+position = Vector2( 0, -40 )
+rotation = -0.261799
+enabled = true
+cast_to = Vector2( 50, -50 )
+
+[node name="Middle" type="Node2D" parent="KinematicBody2D/Raycast"]
+
+[node name="Right ray" type="RayCast2D" parent="KinematicBody2D/Raycast/Middle"]
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="Left ray" type="RayCast2D" parent="KinematicBody2D/Raycast/Middle"]
+enabled = true
+cast_to = Vector2( -100, 0 )
+
+[node name="Bottom ray" type="Node2D" parent="KinematicBody2D/Raycast"]
+
+[node name="Down ray" type="RayCast2D" parent="KinematicBody2D/Raycast/Bottom ray"]
+enabled = true
+cast_to = Vector2( 0, 100 )
+
+[node name="Down right ray" type="RayCast2D" parent="KinematicBody2D/Raycast/Bottom ray"]
+position = Vector2( 32, 32 )
+cast_to = Vector2( 50, 50 )
+
+[node name="Down left" type="RayCast2D" parent="KinematicBody2D/Raycast/Bottom ray"]
+position = Vector2( -32, 32 )
+cast_to = Vector2( -50, 50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 424, 360 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="KinematicBody2D" parent="."]
+position = Vector2( 800, 464 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 3 )
