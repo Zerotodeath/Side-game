@@ -17,3 +17,27 @@ position = Vector2( 576, 320 )
 [node name="AI" parent="." instance=ExtResource( 2 )]
 position = Vector2( 120, 456 )
 can_print = true
+
+[node name="AI2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 304, 536 )
+can_print = true
+
+[node name="AI3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 560 )
+can_print = true
+
+[node name="AI4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 840, 200 )
+can_print = true
+
+[node name="AI5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 312, 184 )
+can_print = true
+
+[node name="AI6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 928, 544 )
+can_print = true
+
+[node name="AI7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 312, 24 )
+can_print = true
